@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#317EFB">
+  <meta charset="UTF-8">
+  <title>体重管理アプリ</title>
+</head>
+<body>
+
+  <h1>体重記録</h1>
+
+  <input type="datetime-local" id="datetime" value="">
+  <input type="number" id="weight" placeholder="体重(kg)" min="0" step="0.1">
+  <button onclick="saveData()">保存</button>
+
+  <h2>記録一覧</h2>
+  <ul id="list"></ul>
+
+  <h2>グラフ</h2>
+  <div style="width: 100%; height: 300px;">
+  <canvas id="chart"></canvas>
+</div>
+
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <!-- 自作 JS -->
+  <script src="app.js"></script>
+
+</body>
+</html>
