@@ -6,38 +6,68 @@
   <meta charset="UTF-8">
   <title>体重管理アプリ</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
-<style>
+  <style>
   body {
-    margin: 10px;
+    margin: 0;
+    padding: 0;
     font-family: sans-serif;
+    background: #f5f5f5;
+  }
+
+  .container {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 15px;
+  }
+
+  h1, h2 {
+    margin-top: 20px;
   }
 
   input, button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
     font-size: 16px;
+  }
+
+  button {
+    background: #317EFB;
+    color: white;
+    border: none;
+    border-radius: 5px;
+  }
+
+  ul {
+    padding: 0;
+  }
+
+  li {
+    list-style: none;
     margin: 5px 0;
+    padding: 10px;
+    background: white;
+    border-radius: 5px;
   }
 </style>
+</head>
 <body>
+  <div class="container">
 
-  <h1>体重記録</h1>
+    <h1>体重記録</h1>
 
-  <input type="datetime-local" id="datetime" value="">
-  <input type="number" id="weight" placeholder="体重(kg)" min="0" step="0.1">
-  <button onclick="saveData()">保存</button>
+    <input type="datetime-local" id="datetime">
+    <input type="number" id="weight" placeholder="体重(kg)">
+    <button onclick="saveData()">保存</button>
 
-  <h2>記録一覧</h2>
-  <ul id="list"></ul>
+    <h2>記録一覧</h2>
+    <ul id="list"></ul>
 
-  <h2>グラフ</h2>
-  <div style="width: 100%; height: 300px;">
-  <canvas id="chart"></canvas>
-</div>
+    <h2>グラフ</h2>
+    <div style="height:300px;">
+      <canvas id="chart"></canvas>
+    </div>
 
-  <!-- Chart.js CDN -->
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <!-- 自作 JS -->
-  <script src="app.js"></script>
-
+  </div>
 </body>
 </html>
