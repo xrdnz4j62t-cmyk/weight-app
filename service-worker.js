@@ -1,4 +1,4 @@
-const CACHE_NAME = "weight-app-v1";
+const CACHE_NAME = "weight-app-v2"; // ←バージョン変える
 const urlsToCache = [
   "./",
   "./index.html",
