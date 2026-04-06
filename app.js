@@ -81,10 +81,11 @@ function renderChart() {
     .map(item => Number(item.weight))
     .filter(w => !isNaN(w) && w > 0);
 
-  // ★安全に最大値取得
   const maxWeight = weights.length > 0 ? Math.max(...weights) : 100;
   const yMax = Math.ceil(maxWeight + 5);
-
+  
+  const minWeight = Math.min(...weights);
+  const yMin = Math.max(0, Math.floor(minWeight - 10));
   
   log("labels", labels);
   log("weights", weights);
@@ -127,8 +128,8 @@ function renderChart() {
                 title: { display: true, text: '日時' }
             },
             y: {
-              min: 0,
-              max: yMax || 100, // fallback
+              min: yMin,
+              max: yMax,
               title: { display: true, text: '体重(kg)' }
             }
         }
