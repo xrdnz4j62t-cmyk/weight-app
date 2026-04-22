@@ -85,7 +85,7 @@ function renderChart() {
   const yMax = Math.ceil(maxWeight + 5);
   
   const minWeight = Math.min(...weights);
-  const yMin = Math.max(0, Math.floor(minWeight - 10));
+  const yMin = Math.floor(minWeight - 10);
   
   log("labels", labels);
   log("weights", weights);
