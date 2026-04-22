@@ -153,6 +153,13 @@ function deleteData(index) {
   renderChart();
 }
 
+function toggleAccordion() {
+  const body = document.getElementById("accordion-body");
+  const arrow = document.getElementById("accordion-arrow");
+  body.classList.toggle("open");
+  arrow.classList.toggle("open");
+}
+
 function setNow() {
   log("setNow called");
 

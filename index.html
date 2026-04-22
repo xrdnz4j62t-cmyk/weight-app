@@ -29,6 +29,7 @@
     padding: 10px;
     margin-top: 10px;
     font-size: 16px;
+    box-sizing: border-box;
   }
 
   button {
@@ -36,10 +37,12 @@
     color: white;
     border: none;
     border-radius: 5px;
+    cursor: pointer;
   }
 
   ul {
     padding: 0;
+    margin: 0;
   }
 
   li {
@@ -49,7 +52,41 @@
     background: white;
     border-radius: 5px;
   }
-</style>
+
+  /* 折りたたみ */
+  .accordion-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    user-select: none;
+    margin-top: 20px;
+  }
+
+  .accordion-header h2 {
+    margin: 0;
+  }
+
+  .accordion-arrow {
+    font-size: 18px;
+    transition: transform 0.2s;
+    color: #317EFB;
+  }
+
+  .accordion-arrow.open {
+    transform: rotate(180deg);
+  }
+
+  .accordion-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+
+  .accordion-body.open {
+    max-height: 2000px;
+  }
+  </style>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
@@ -61,12 +98,17 @@
     <input type="number" id="weight" placeholder="体重(kg)">
     <button onclick="saveData()">保存</button>
 
-    <h2>記録一覧</h2>
-    <ul id="list"></ul>
-
     <h2>グラフ</h2>
     <div style="height:300px;">
       <canvas id="chart"></canvas>
+    </div>
+
+    <div class="accordion-header" onclick="toggleAccordion()">
+      <h2>記録一覧</h2>
+      <span class="accordion-arrow" id="accordion-arrow">▼</span>
+    </div>
+    <div class="accordion-body" id="accordion-body">
+      <ul id="list"></ul>
     </div>
 
   </div>
